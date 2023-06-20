@@ -27,3 +27,5 @@ Siga as instruções abaixo para executar o projeto em sua máquina local:
 5. Execute o comando `npm start` para iniciar a aplicação.
 6. Acesse `http://localhost:3000` em seu navegador para visualizar a aplicação.
 7. Escolha um dos usuários do arquivo `src/data/dados.json` e faça seus testes.
+
+Veja mais em: https://vinecunha-login.netlify.app
