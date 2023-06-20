@@ -52,7 +52,7 @@ const Login = () => {
         </span>
       {errorMessage && <Message className="mb-3" severity="error" text={errorMessage} />}
       <Button label="Acessar" onClick={handleLogin} />
-      <p className='my-3' style={{ fontSize: '.8rem' }}>Não tem um acesso? Consulte o <a href=''>README</a> no github</p>
+      <p className='my-3' style={{ fontSize: '.8rem' }}>Não tem um acesso? Consulte o <strong><a href='https://github.com/vinecunha/login' target='blank'>README</a></strong> no GitHub</p>
     </div>
   );
 };
