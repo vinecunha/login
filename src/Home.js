@@ -26,10 +26,10 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-container container-sm d-flex flex-column justify-content-between align-items-center">
+    <div className="home-container h-100 container-sm d-flex flex-column justify-content-between align-items-center">
       <div className='w-100 m-1 d-flex justify-content-end'>
         {isLoggedIn && (
-          <Button label='Logoff' icon="pi pi-sign-out" severity='danger' onClick={handleLogoff} />
+          <Button label='Sair' icon="pi pi-sign-out" severity='danger' onClick={handleLogoff} />
         )}
       </div>
       <div className='d-flex flex-column align-items-center'>
@@ -38,7 +38,7 @@ const Home = () => {
           <i className='pi pi-clock mx-1'></i>
           {currentDate.toLocaleString()}
         </p>
-        <p>{message}</p>
+        <p><i className='pi pi-history me-1'></i>{message}</p>
       </div>
     </div>
   );
