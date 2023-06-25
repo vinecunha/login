@@ -14,7 +14,6 @@ const Home = () => {
     setIsLoggedIn(false);
     navigate('/');
   };
-
   useEffect(() => {
     const timerID = setInterval(() => {
       setCurrentDate(new Date());

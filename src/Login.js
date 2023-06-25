@@ -32,7 +32,7 @@ const Login = () => {
   };
 
   return (
-    <div style={{ maxWidth: '540px'}} className="container-sm login-container border border-1 border-info bg-white m-auto my-5 py-5 shadow d-flex flex-column align-items-center">
+    <div style={{ maxWidth: '350px'}} className="login-container rounded border border-1 border-info bg-white m-auto my-5 py-5 shadow d-flex flex-column align-items-center">
       <h2>Login</h2>
       <form onSubmit={handleLogin} className='container-fluid d-flex flex-column align-items-center'>
         <span className="p-float-label my-4">
@@ -56,7 +56,6 @@ const Login = () => {
           />
           <label htmlFor="password"><i className='pi pi-lock me-1'></i>Password</label>
         </span>
-        {errorMessage && <Message className="mb-3" severity="error" text={errorMessage} />}
         <Button type="submit" label={errorMessage ? errorMessage : "Acessar"} icon={errorMessage ? "pi pi-exclamation-triangle" : "pi pi-sign-in"} severity={errorMessage ? 'danger' : ''} />
       </form>
       <p className='my-3' style={{ fontSize: '.8rem' }}>Não tem um acesso? Consulte o <strong><a href='https://github.com/vinecunha/login' target='blank'>README</a></strong> no GitHub</p>
