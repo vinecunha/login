@@ -27,6 +27,7 @@ const Login = () => {
       const message = `Seu último login foi em: ${lastLogin}`;
       navigate('/home', { state: { username, message } });
     } else {
+      navigator.vibrate(500);
       setErrorMessage('Credenciais inválidas');
     }
   };
