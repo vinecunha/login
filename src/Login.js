@@ -52,7 +52,7 @@ const Login = () => {
             id="password"
             value={password}
             feedback={false}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {setPassword(e.target.value); setErrorMessage('')}}
             required
           />
           <label htmlFor="password"><i className='pi pi-lock me-1'></i>Password</label>
