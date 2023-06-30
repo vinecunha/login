@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
 import { useNavigate } from 'react-router-dom';
-import { Message } from 'primereact/message';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -15,20 +14,55 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [countError, setCountError] = useState(0);
+  const [isBlocked, setIsBlocked] = useState(false);
+  const [blockTimer, setBlockTimer] = useState(0); // Variável para contagem regressiva do tempo restante
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (blockTimer > 0) {
+      setErrorMessage(`Você está bloqueado por ${blockTimer} segundos.`);
+    } else {
+      setErrorMessage('');
+    }
+  }, [blockTimer]);
+
   const handleLogin = (event) => {
-    event.preventDefault(); // Impede o comportamento padrão do formulário
+    event.preventDefault();
+
+    if (isBlocked) {
+      return;
+    }
 
     const user = data.find((item) => item.username === username && item.password === password);
-
+    
     if (user) {
       const lastLogin = new Date().toLocaleString();
       const message = `Seu último login foi em: ${lastLogin}`;
       navigate('/home', { state: { username, message } });
     } else {
       navigator.vibrate(500);
-      setErrorMessage('Credenciais inválidas');
+
+      setCountError((prevCount) => prevCount + 1);
+
+      if (countError + 1 === 3) {
+        const blockTime = 30; // Tempo de bloqueio em segundos
+        setIsBlocked(true);
+        setBlockTimer(blockTime);
+
+        const interval = setInterval(() => {
+          setBlockTimer((prevTime) => prevTime - 1);
+        }, 1000);
+
+        setTimeout(() => {
+          clearInterval(interval);
+          setIsBlocked(false);
+          setCountError(0);
+          setBlockTimer(0);
+        }, blockTime * 1000);
+      } else {
+        setErrorMessage(`Credenciais inválidas - Tentativa ${countError + 1}`);
+      }
     }
   };
 
@@ -52,7 +86,7 @@ const Login = () => {
             id="password"
             value={password}
             feedback={false}
-            onChange={(e) => {setPassword(e.target.value); setErrorMessage('')}}
+            onChange={(e) => {setPassword(e.target.value); (!isBlocked) ? setErrorMessage('') : setErrorMessage(errorMessage)}}
             required
           />
           <label htmlFor="password"><i className='pi pi-lock me-1'></i>Password</label>
