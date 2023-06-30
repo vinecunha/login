@@ -69,7 +69,7 @@ const Login = () => {
 
   return (
     <div style={{ maxWidth: '350px'}} className="login-container rounded border border-1 border-info bg-white m-auto my-5 py-5 shadow d-flex flex-column align-items-center">
-      <h2>Login</h2>
+      <h2>SIGN IN</h2>
       <form onSubmit={handleLogin} className='container-fluid d-flex flex-column align-items-center'>
         <span className="p-float-label my-4">
           <InputText
