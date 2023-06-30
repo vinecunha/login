@@ -7,6 +7,7 @@ import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import './App.css';
+import 'hover.css/css/hover-min.css';
 
 import data from './data/dados.json';
 
@@ -91,7 +92,7 @@ const Login = () => {
           />
           <label htmlFor="password"><i className='pi pi-lock me-1'></i>Password</label>
         </span>
-        <Button type="submit" label={errorMessage ? errorMessage : "Acessar"} icon={errorMessage ? "pi pi-exclamation-triangle" : "pi pi-sign-in"} severity={errorMessage ? 'danger' : ''} />
+        <Button type="submit" label={errorMessage ? errorMessage : "Acessar"} icon={errorMessage ? "pi pi-exclamation-triangle" : "pi pi-sign-in"} severity={errorMessage ? 'danger' : ''} className={isBlocked ? 'hvr-buzz-out' : ''} />
       </form>
       <p className='my-3' style={{ fontSize: '.8rem' }}>Não tem um acesso? Consulte o <strong><a href='https://github.com/vinecunha/login' target='blank'>README</a></strong> no GitHub</p>
     </div>
