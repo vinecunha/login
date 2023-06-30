@@ -90,7 +90,7 @@ const Login = () => {
             onChange={(e) => {setPassword(e.target.value); (!isBlocked) ? setErrorMessage('') : setErrorMessage(errorMessage)}}
             required
           />
-          <label htmlFor="password"><i className='pi pi-lock me-1'></i>Password</label>
+          <label htmlFor="password"><i className='pi pi-lock me-1'></i>Senha</label>
         </span>
         <Button type="submit" label={errorMessage ? errorMessage : "Acessar"} icon={errorMessage ? "pi pi-exclamation-triangle" : "pi pi-sign-in"} severity={errorMessage ? 'danger' : ''} className={isBlocked ? 'hvr-buzz-out' : ''} />
       </form>
