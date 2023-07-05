@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 
 :root{
-  --body-color: #009c3b;
+  --body-color: #f5f5f5;
   --body-color-2: #ffdf00;
   --body-color-3: #002776;
   --border: #ccc;
@@ -12,7 +12,10 @@
 body{
   width: 100%;
   font-family: 'IBM Plex Sans', sans-serif !important;
-  background-color: var(--bg-color) !important;
+  background-color: var(--body-color) !important;
+}
+.login-container{
+  background-color: #ffffff55;
 }
 #consulta{
   background-color: #f5f5f599;
